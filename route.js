@@ -1,19 +1,17 @@
 const Hapi = require('hapi');
 
-// function serverStart(port) {
 const server = new Hapi.Server();
-
 server.connection({
   host: 'localhost',
-  port: Number(8080),
+  port: 8080,
 });
 
-function handleFunction(request, reply) {
-  reply('Hello hapi');
-  // return ('Hello hapi');
+function handleFunction(name, request, reply) {
+  // reply(`Hello ${request.params.name}`);
+  return (`Hello ${name}`);
 }
 
-server.route({ path: '/', method: 'GET', handler: handleFunction });
+server.route({ path: '/{name}', method: 'GET', handler: handleFunction });
 
 server.start(() => {
   console.log('Server running at:', server.info.uri);
