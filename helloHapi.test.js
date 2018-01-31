@@ -5,6 +5,9 @@ describe('Testing the handler function', () => {
   test('Should return Hello hapi', () => {
     expect(serverFunction.handleFunction()).toEqual(output);
   });
+  test('Should return Hello hapi', () => {
+    expect(serverFunction.server.statusCode).toBe(200);
+  });
 });
 // const axios = require('axios');
 //
