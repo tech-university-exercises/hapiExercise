@@ -1,6 +1,6 @@
 const Hapi = require('hapi');
 const Inert = require('inert');
-const Path = require('path');
+// const Path = require('path');
 
 const server = new Hapi.Server();
 
@@ -15,14 +15,14 @@ server.register(Inert, (err) => {
 
 server.route({
   method: 'GET',
-  path: '/path/to/somewhere/{filename}',
-  handler: {
-    directory: {
-      path: Path.join(__dirname, 'public'),
-    },
+  path: '/foo/bar/baz/{filename}',
+  handler: (request, response) => {
+    response.file(`public/${request.params.filename}`);
   },
 });
 
 server.start((err) => {
   if (err) throw err;
 });
+
+module.exports = server;
