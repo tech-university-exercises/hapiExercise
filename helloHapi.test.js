@@ -9,6 +9,16 @@ describe('Testing the handler function', () => {
     expect(serverFunction.server.statusCode).toBe(200);
   });
 });
+
+// describe('GET /user', () => {
+//   it('respond with json', (done) => {
+//     request(app)
+//       .get('/user')
+//       .set('Accept', 'application/json')
+//       .expect('Content-Type', /json/)
+//       .expect(200, done);
+//   });
+// });
 // const axios = require('axios');
 //
 // describe('Test the response', () => {
