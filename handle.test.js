@@ -1,4 +1,6 @@
 const Server = require('./handle.js');
+const fs = require('fs');
+// const output = require('./index.html');
 
 describe('ping controller', () => {
   const options = {
@@ -22,6 +24,14 @@ describe('ping controller', () => {
   test('responds with success for ping', (done) => {
     Server.inject(options, (response) => {
       expect(response.statusCode).toBe(200);
+      done();
+    });
+  });
+
+  test('responds with an html file', (done) => {
+    Server.inject(options, (response) => {
+      const output = fs.readFileSync('index.html', 'UTF8');
+      expect(response.result).toBe(output);
       done();
     });
   });

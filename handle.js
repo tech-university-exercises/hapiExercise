@@ -16,10 +16,13 @@ server.route({
   method: 'GET',
   handler: (request, response) => {
     response.file('index.html');
+    // const val = response;
+    // console.log(val);
   },
 });
 
 server.start(() => {
+  console.log('Het');
   console.log('Server running at:', server.info.uri);
 });
 
