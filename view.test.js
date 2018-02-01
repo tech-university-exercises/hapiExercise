@@ -1,4 +1,4 @@
-const Server = require('./view.js');
+const Server = require('./view');
 const fs = require('fs');
 // const output = require('./index.html');
 
