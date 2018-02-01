@@ -1,11 +1,11 @@
-const Server = require('./view');
-const fs = require('fs');
+const Server = require('./helping');
+// const fs = require('fs');
 // const output = require('./index.html');
 
-describe('ping controller', () => {
+describe('Testing the response', () => {
   const options = {
     method: 'GET',
-    url: '/?name=anmol',
+    url: '/?name=anmol&suffix=varma',
   };
 
   beforeAll((done) => {
@@ -24,13 +24,6 @@ describe('ping controller', () => {
   test('responds with success statusCode', (done) => {
     Server.inject(options, (response) => {
       expect(response.statusCode).toBe(200);
-      done();
-    });
-  });
-  test('response checked', (done) => {
-    Server.inject(options, (response) => {
-      const output = fs.readFileSync('templates/index.html', 'UTF8').split('{{query.name}}').join('anmol');
-      expect(response.result).toBe(output);
       done();
     });
   });

@@ -1,14 +1,14 @@
-// const serverFunction = require('./helloHapi');
+const serverFunction = require('./helloHapi');
 
-// describe('Testing the handler function', () => {
-//   const output = 'Hello hapi';
-//   test('Should return Hello hapi', () => {
-//     expect(serverFunction.handleFunction()).toEqual(output);
-//   });
-//   test('Should return Hello hapi', () => {
-//     expect(serverFunction.server.statusCode).toBe(200);
-//   });
-// });
+describe('Testing the handler function', () => {
+  const output = 'Hello hapi';
+  test('Should return Hello hapi', () => {
+    expect(serverFunction.handleFunction()).toEqual(output);
+  });
+  test('Should return Hello hapi', () => {
+    expect(serverFunction.server.statusCode).toBe(200);
+  });
+});
 
 // describe('GET /user', () => {
 //   it('respond with json', (done) => {
@@ -19,27 +19,27 @@
 //       .expect(200, done);
 //   });
 // });
-const axios = require('axios');
-
-describe('Test the response', () => {
-  {
-    const output = '';
-    test('Hello everyone', () => {
-      console.log('1');
-      return axios.get('http://localhost:8080')
-        .then((response) => {
-          console.log('234');
-          expect(response).toBe(output);
-          // done();
-        })
-        .catch((error) => {
-          expect(error).toBeInstanceOf(Error);
-          // done();
-        });
-      console.log('2');
-    });
-  }
-});
+// const axios = require('axios');
+//
+// describe('Test the response', () => {
+//   {
+//     const output = '';
+//     test('Hello everyone', () => {
+//       console.log('1');
+//       return axios.get('http://localhost:8080')
+//         .then((response) => {
+//           console.log('234');
+//           expect(response).toBe(output);
+//           // done();
+//         })
+//         .catch((error) => {
+//           expect(error).toBeInstanceOf(Error);
+//           // done();
+//         });
+//       console.log('2');
+//     });
+//   }
+// });
 // axios.get('/')
 //   .then((response) => {
 //     describe('Test the response', () => {
