@@ -1,8 +1,11 @@
-const Server = require('./helping');
-// const fs = require('fs');
-// const output = require('./index.html');
+const Server = require('./streams');
 
-describe('Testing the response', () => {
+describe('Server test', () => {
+  const options = {
+    method: 'GET',
+    url: '/',
+  };
+
   beforeAll((done) => {
     Server.on('start', () => {
       done();
@@ -17,22 +20,17 @@ describe('Testing the response', () => {
   });
 
   test('responds with success statusCode', (done) => {
-    const options = {
-      method: 'GET',
-      url: '/?name=anmol&suffix=varma',
-    };
     Server.inject(options, (response) => {
+      console.log(123);
       expect(response.statusCode).toBe(200);
       done();
     });
   });
-  test('responds with 404 for invalid query', (done) => {
-    const options = {
-      method: 'GET',
-      url: '/name=ix=varma',
-    };
+
+  test('responds with success statusCode', (done) => {
     Server.inject(options, (response) => {
-      expect(response.statusCode).toBe(404);
+      console.log(123);
+      expect(response.statusCode).toBe(200);
       done();
     });
   });

@@ -2,7 +2,7 @@ const Server = require('./view');
 const fs = require('fs');
 // const output = require('./index.html');
 
-describe('ping controller', () => {
+describe('Server test', () => {
   const options = {
     method: 'GET',
     url: '/?name=anmol',
