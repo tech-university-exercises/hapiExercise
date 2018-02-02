@@ -10,8 +10,8 @@ server.connection({
 });
 
 function handleFunction(req, reply) {
-  const result = fs.createReadStream('test.txt');
-  reply(result.pipe(rot13()));
+  const result = fs.createReadStream('test.txt').pipe(rot13());
+  reply(result);
 }
 
 server.route({ path: '/', method: 'GET', handler: handleFunction });

@@ -1,6 +1,7 @@
 const Vision = require('vision');
 const Hapi = require('hapi');
-const Path = require('path');
+const Joi = require('joi');
+// const Path = require('path');
 const handle = require('handlebars');
 
 const server = new Hapi.Server();
@@ -13,8 +14,25 @@ server.register(Vision, (err) => {
   if (err) throw err;
 });
 
+function myHandler(req, res) {
+  res(req.params.breed);
+}
+
 server.views({ engines: { html: handle }, path: './templates' });
-server.route({ path: '/', method: 'GET', handler: { view: 'index.html' } });
+
+server.route({
+  path: '/chicken/{breed}',
+  method: 'GET',
+  handler: myHandler,
+  config: {
+    validate: {
+      params: {
+        with: Joi.string().required(),
+        parameters: Joi.string().required(),
+      },
+    },
+  },
+});
 
 server.start(() => {
   console.log('Server running at:', server.info.uri);
